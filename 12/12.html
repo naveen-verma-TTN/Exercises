@@ -1,0 +1,69 @@
+<HTML>
+   <TITLE>My Page</TITLE>
+   <HEAD>
+      <META NAME= "DESCRIPTION" VALUE="DEMO WEBPAGE."/>
+      <META NAME= "TAG" VALUE="HTML CSS "/>
+      <link rel="stylesheet" type="text/css" href="mystyle.css">
+   </HEAD>
+   <BODY>
+      <div class="headtext">
+         <span style="font-size: 30px; font-weight: bold;"> TO THE NEW</span>
+         <div class="head">
+            <a><span>Home</span></a>
+            &nbsp;
+            <a><span>Quick Help</span></a>
+         </div>
+      </div>
+      <hr>
+      <div class="box">
+         <header class="form-head"> Bug Report</header>
+         <form>
+            <div style="padding-left: 50px; padding-right: 50px; padding-top: 10px">
+               <label>Title:*</label><br>
+               <input id="title" type="text" name="title" required><br>
+               <label>Description:*</label><br>
+               <textarea id="description" rows="4" cols="50" required></textarea>
+               <br>
+               <label>Operating system:</label><br>
+               <select id="operating_system">
+                  <option>Windows Xp</option>
+                  <option>Windows 10</option>
+                  <option>Linux Ubuntu 18.4</option>
+                  <option>Android Ore</option>
+               </select>
+               <br>
+               <label>Product:*</label><br>
+               <select id="product" required>
+                  <option>Microsoft office</option>
+                  <option>Mircosoft office</option>
+                  <option>Open office</option>
+                  <option>Android office</option>
+               </select>
+               <br>
+               <label>Version:*</label><br>
+               <input id="version" type="text" name="version" class="ver" required><br>
+               <label>License:</label><br>
+               <input type="radio" name="License" value="free" class="radio"> 
+               <span style="margin-right: 200px;">Free</span>
+               <input type="radio" name="License" value="business" class="radio"> 
+               <span>Business</span>
+               <br>
+               <label>Severity:</label><br>
+               <select id="severity">
+                  <option>Critical</option>
+                  <option>Average</option>
+                  <option>Low</option>
+               </select>
+               <br>
+               <label>Attachements:</label><br>
+               <div class="inputbox">
+                  <input type="file" class="custom-file-input">
+               </div>
+            </div>
+            <footer style="background: #D8D8D8;">
+               <input type="submit" name="Send" value="Send" class="button">
+            </footer>
+         </form>
+      </div>
+   </BODY>
+</HTML>
