@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ <style>
+  .panel-default > .panel-heading-custom {
+    background: grey; color: #fff;
+    height:60px;
+}
+
+.cl{
+  background: #29c7ac;
+}
+
+ </style>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+  <a class="navbar-brand text-info" href="#">TO THE NEW</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav ml-auto" style="float: right;">
+      <li class="nav-item">
+        <a class="nav-link text-info" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-info" href="#">Quick</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-info" href="#">Help</a>
+      </li>
+    </ul>
+    </div>
+    </div>
+</nav>
+<hr>
+ 
+<div class="container">
+  <div class="panel-group mb-5" style="margin-left:15%;margin-right: 15%; border:2px solid grey; border-radius: 5px">
+
+    <div class="panel panel-default">
+      <div class="panel-heading panel-heading-custom pl-2"><span style="font-size:30px;color:white">Bug Report</span></div>
+      <div class="panel-body">
+        <form>
+
+      <div class = "row">
+        <div class="form-group col-sm-10 mt-2" style="margin-left:10%">
+          <label >Title:*</label>
+          <input class="form-control form-control-sm">
+        </div>
+      </div>
+
+      <div class = "row">
+        <div class="form-group col-sm-10 mt-2" style="margin-left:10%">
+          <label>Description:*</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-sm-10 mt-2" style="margin-left:10%">
+              <label >Operating system:</label>
+              <select class="form-control cl">
+              <option>Windows 7</option>
+              <option>Windows 10</option>
+              <option>Linux</option>
+               <option>macOs X</option>
+            </select>
+        </div> 
+      </div>
+
+      <div class="row">
+         <div class="form-group col-sm-10" style="margin-left:10%">
+              <label>Product:*</label>
+              <select class="form-control cl">
+             <option>Microsoft Office</option>
+             <option>Open Office </option>
+             <option>Android Studio</option>
+            </select>
+        </div> 
+      </div>
+
+      <div class = "row">
+        <div class="form-group col-sm-10" style="margin-left:10%">
+          <label >Version:*</label>
+            <textarea class="form-control" rows="3" ></textarea>
+        </div>
+      </div>
+
+  
+        <div class="row">
+          <div class="form-check col-sm-5" style="margin-left:10%;">
+            <label class="form-check-label">
+                    License:
+            </label>
+          </div>
+          </div>
+          <div class="row">
+          <div class="form-check col-sm-5 pl-5 pt-2" style="margin-left:10%">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio">Free
+            </label>
+          </div>
+
+          <div class="form-check pt-2">
+            <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio">Business
+            </label>
+          </div> 
+        </div>
+
+        <div class="row">
+         <div class="form-group col-sm-10  mt-2" style="margin-left:10%">
+              <label">Severity:*</label>
+              <select class="form-control cl">
+             <option>Critical</option>
+             <option>Average </option>
+             <option>Low</option>
+            </select>
+        </div> 
+      </div>
+<div class="row">
+         <div class="form-group col-sm-10 mt-2" style="margin-left:10%">
+        <label>Attachments:</label><br>
+    <form>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" style="background: red; color: red">
+    <label class="custom-file-label">Choose file</label>
+  </div>
+</form>
+  </div>
+</div>
+
+  </form>
+      </div>
+      <div class="panel-footer" style="background: #D8D8D8">
+      <button type="button" class="btn btn-success mt-5 mb-5" style="margin-left: 85%">Send</button></div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+</html>
