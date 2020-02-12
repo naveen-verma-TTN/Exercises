@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <button name="submit" value="Submit" onclick="fun()">Submit</button>
+      <script>
+         function fun() {
+          	var amt = prompt("Amount", 0);
+         	var rate = prompt("Rate", 0);
+         	var year = prompt("Years", 0);
+         	var interest = amt*(1+ rate * year);
+         	window.alert("Interest = "+interest);
+         }
+               
+      </script>
+   </body>
+</html>

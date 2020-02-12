@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+<button name="submit" value="Submit" onclick="fun()">Submit</button>
+     <script>
+function fun() {
+var obj1 = new Date();
+var obj2 = copy(obj1);
+alert("original: "+ obj1 + "\n copy: "+ obj2);
+}
+
+function copy(obj) {
+    if (null == obj || typeof obj != "object") return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+
+      </script>
+  </body>
+</html>

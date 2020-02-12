@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <button name="Create" value="Create" onclick="create()">Create</button> Name, age, salary ,DOB<br><br>
+      <button name="Show" value="Show" onclick="filter()">Filter</button> filter all employees with salary greater than 5000<br><br>
+      <button name="group" value="group" onclick="group()">Group by age</button> Group employee on the basis of their age
+      <br><br>
+      <button name="increment" value="increment" onclick="increment()">Increment salary by 5 times</button> fetch employees with salary less than 1000 and age greater than 20. Then give them an increment 5 times their salary.
+      <br><br>
+      <div id="_div"></div>
+      <script>
+         {
+           var empolyee;
+         function create() {
+         empolyee = [
+         { Name: 'naveen', Age: 25,Salary: 20000, DOB: '12/1/1995'},
+         { Name: 'rohit', Age: 25,Salary: 500, DOB: '16/2/1995'},
+         { Name: 'rohit', Age: 27,Salary: 15000, DOB: '23/4/1993'},
+         { Name: 'shivam', Age: 25,Salary: 5000, DOB: '11/8/1995'},
+         { Name: 'faraz', Age: 26,Salary: 200, DOB: '12/1/1994'},
+         { Name: 'ram', Age: 25,Salary: 1000, DOB: '11/8/1995'},
+         { Name: 'rinki', Age: 27,Salary: 2000, DOB: '11/8/1993'},
+         { Name: 'ayushi', Age: 25,Salary: 4000,DOB: '30/8/1995'},
+         { Name: 'subham', Age: 25,Salary: 15000,DOB: '01/8/1995'},
+         ];
+         var i;
+         var table = "<TABLE border=2px cellspacing=5><thead><tr><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
+         for(i=0; i<empolyee.length;i++){
+         table+="<tr>";
+         table+="<td>"+ empolyee[i].Name+"</td>";
+         table+="<td>"+ empolyee[i].Age+"</td>";
+         table+="<td>"+ empolyee[i].Salary+"</td>";
+         table+="<td>"+ empolyee[i].DOB+"</td>";
+         table+="</tr>";
+         }
+         table+="</TABLE>";
+         document.getElementById("_div").innerHTML = table;
+         }
+         
+         function filter() {
+         var i;
+         var table = "<TABLE border=2px cellspacing=5><thead><tr><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
+         for(i=0; i<empolyee.length;i++){
+         if(empolyee[i].Salary>5000) {
+         table+="<tr>";
+         table+="<td>"+ empolyee[i].Name+"</td>";
+         table+="<td>"+ empolyee[i].Age+"</td>";
+         table+="<td>"+ empolyee[i].Salary+"</td>";
+         table+="<td>"+ empolyee[i].DOB+"</td>";
+         table+="</tr>";
+         }
+         }
+         table+="</TABLE>";
+         document.getElementById("_div").innerHTML = table;
+         }
+         
+         function group() {
+         var table;
+         var emp = empolyee.reduce((r, a) => {
+         r[a.Age] = [...r[a.Age] || [], a];
+         return r;
+         }, {});
+         document.getElementById("_div").innerHTML = JSON.stringify(emp);
+         }
+         
+         function increment() {
+         var i;
+         var table = "<TABLE border=2px cellspacing=5><thead><tr><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
+         for(i=0; i<empolyee.length;i++){
+         if(empolyee[i].Salary<1000 && empolyee[i].Age>20) {
+         empolyee[i].Salary *=5;
+         table+="<tr>";
+         table+="<td>"+ empolyee[i].Name+"</td>";
+         table+="<td>"+ empolyee[i].Age+"</td>";
+         table+="<td>"+ empolyee[i].Salary+"</td>";
+         table+="<td>"+ empolyee[i].DOB+"</td>";
+         table+="</tr>";
+         }
+         }
+         table+="</TABLE>";
+         document.getElementById("_div").innerHTML = table;
+         }
+         }
+         
+         
+         
+      </script>
+   </body>
+</html>
