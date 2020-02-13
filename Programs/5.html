@@ -10,9 +10,9 @@
       <div id="_div"></div>
       <script>
          {
-           var empolyee;
+           var employee;
          function create() {
-         empolyee = [
+         employee = [
          { Name: 'naveen', Age: 25,Salary: 20000, DOB: '12/1/1995'},
          { Name: 'rohit', Age: 25,Salary: 500, DOB: '16/2/1995'},
          { Name: 'rohit', Age: 27,Salary: 15000, DOB: '23/4/1993'},
@@ -25,12 +25,12 @@
          ];
          var i;
          var table = "<TABLE border=2px cellspacing=5><thead><tr><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
-         for(i=0; i<empolyee.length;i++){
+         for(i=0; i<employee.length;i++){
          table+="<tr>";
-         table+="<td>"+ empolyee[i].Name+"</td>";
-         table+="<td>"+ empolyee[i].Age+"</td>";
-         table+="<td>"+ empolyee[i].Salary+"</td>";
-         table+="<td>"+ empolyee[i].DOB+"</td>";
+         table+="<td>"+ employee[i].Name+"</td>";
+         table+="<td>"+ employee[i].Age+"</td>";
+         table+="<td>"+ employee[i].Salary+"</td>";
+         table+="<td>"+ employee[i].DOB+"</td>";
          table+="</tr>";
          }
          table+="</TABLE>";
@@ -40,13 +40,13 @@
          function filter() {
          var i;
          var table = "<TABLE border=2px cellspacing=5><thead><tr><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
-         for(i=0; i<empolyee.length;i++){
-         if(empolyee[i].Salary>5000) {
+         for(i=0; i<employee.length;i++){
+         if(employee[i].Salary>5000) {
          table+="<tr>";
-         table+="<td>"+ empolyee[i].Name+"</td>";
-         table+="<td>"+ empolyee[i].Age+"</td>";
-         table+="<td>"+ empolyee[i].Salary+"</td>";
-         table+="<td>"+ empolyee[i].DOB+"</td>";
+         table+="<td>"+ employee[i].Name+"</td>";
+         table+="<td>"+ employee[i].Age+"</td>";
+         table+="<td>"+ employee[i].Salary+"</td>";
+         table+="<td>"+ employee[i].DOB+"</td>";
          table+="</tr>";
          }
          }
@@ -56,24 +56,37 @@
          
          function group() {
          var table;
-         var emp = empolyee.reduce((r, a) => {
+         var emp = employee.reduce((r, a) => {
          r[a.Age] = [...r[a.Age] || [], a];
          return r;
          }, {});
-         document.getElementById("_div").innerHTML = JSON.stringify(emp);
+         table = "<TABLE border=2px cellspacing=5><thead><tr><th>Group</th><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
+         for(var i in emp) 	{
+         	table+="<td rowspan="+(emp[i].length+1)+">"+i+"</td>";
+         	for( var e in emp[i])	{
+         		 table+="<tr>";
+         		 table+="<td>"+ emp[i][e].Name+"</td>";
+         		 table+="<td>"+ emp[i][e].Age+"</td>";
+         		 table+="<td>"+ emp[i][e].Salary+"</td>";
+         		 table+="<td>"+ emp[i][e].DOB+"</td>";
+         		 table+="</tr>";
+         	}
+         }
+         table+="</TABLE>";
+         document.getElementById("_div").innerHTML = table;
          }
          
          function increment() {
          var i;
          var table = "<TABLE border=2px cellspacing=5><thead><tr><th>NAME</th><th>AGE</th><th>SALARY</th><th>DOB</th></tr></thead>";
-         for(i=0; i<empolyee.length;i++){
-         if(empolyee[i].Salary<1000 && empolyee[i].Age>20) {
-         empolyee[i].Salary *=5;
+         for(i=0; i<employee.length;i++){
+         if(employee[i].Salary<1000 && employee[i].Age>20) {
+         employee[i].Salary *=5;
          table+="<tr>";
-         table+="<td>"+ empolyee[i].Name+"</td>";
-         table+="<td>"+ empolyee[i].Age+"</td>";
-         table+="<td>"+ empolyee[i].Salary+"</td>";
-         table+="<td>"+ empolyee[i].DOB+"</td>";
+         table+="<td>"+ employee[i].Name+"</td>";
+         table+="<td>"+ employee[i].Age+"</td>";
+         table+="<td>"+ employee[i].Salary+"</td>";
+         table+="<td>"+ employee[i].DOB+"</td>";
          table+="</tr>";
          }
          }
