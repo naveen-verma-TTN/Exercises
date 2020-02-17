@@ -8,5 +8,11 @@ class myClass {
     }  
 
     public int countOccurrences(String str, char ch, int i){
-        return ((i=str.indexOf(ch, i)) == -1)?0:1+countOccurrences(str, ch, i+1);}
+         if((i=str.indexOf(ch, i)) == -1){
+             return 0;
+         }
+        else {
+            return (1+countOccurrences(str, ch, i+1));
+        }
+    }
 } 
