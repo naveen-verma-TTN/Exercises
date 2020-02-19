@@ -2,9 +2,10 @@
 class myClass {
     public static void main(String[] args) 
     { 
-        String str = "t t t t T n n T n $ # # 3 #"; 
+        String str = "ttttTnnTn$##3#"; 
+        char a = 't';
         myClass obj = new myClass();
-        System.out.println("Count: " +obj.countOccurrences(str,' ',0)) ; 
+        System.out.println("Count: " +obj.countOccurrences(str,a,0)) ; 
     }  
 
     public int countOccurrences(String str, char ch, int i){
