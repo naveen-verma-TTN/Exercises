@@ -17,8 +17,14 @@ class myClone implements Cloneable{
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return this;
+    protected Object clone(){
+        try{
+        return super.clone();
+        }
+        catch(Exception e) {
+            System.out.println(e.toString());
+            return null;
+        }
     }
 }
 class myClass {
@@ -29,5 +35,6 @@ class myClass {
         myClone obj2 = new myClone(obj1);
         obj2.display();
         myClone obj3 = (myClone)obj2.clone();
+        obj3.display();
     }
 }
