@@ -1,24 +1,47 @@
-// WAP to convert seconds into days, hours, minutes and seconds.
-class myClass{
-    public static void main(String [] args) {
-        int totalSecs = 234444;
+// Run a task with the help of callable and store it's result in the Future.
 
-        String timeString = myClass.secToTime(totalSecs);
-        System.out.println(timeString);
-    }
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.Random;
 
-    static String secToTime(int sec) {
-        int seconds = sec % 60;
-        int minutes = sec / 60;
-        if (minutes >= 60) {
-            int hours = minutes / 60;
-            minutes %= 60;
-            if( hours >= 24) {
-                int days = hours / 24;
-                return String.format("%d days %02d:%02d:%02d", days,hours%24, minutes, seconds);
+class myClass {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newCachedThreadPool();
+
+        Future<Integer> futureTask =executor.submit(new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                Random random = new Random();
+                int duration = random.nextInt(4000);
+
+                System.out.println("Starting...");
+
+                try {
+                    Thread.sleep(duration);
+                }
+                catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Finished.");
+                return 1;
             }
-            return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        });
+
+        executor.shutdown();
+
+        try {
+            System.out.println("Future value " + futureTask.get());
         }
-        return String.format("00:%02d:%02d", minutes, seconds);
+        catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        catch(ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }

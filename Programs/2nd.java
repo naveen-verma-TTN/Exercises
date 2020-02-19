@@ -1,55 +1,43 @@
-// WAP to sorting string without using string Methods
-class myClass {
+// Write a program to create a thread using Thread class and Runnable interface each.
 
-    int compareStr(String s1, String s2)
-    {
-        int c = 0;
-        s1 = s1.toLowerCase();
-        s2 = s2.toLowerCase();
-        for (int i = 0; i<s1.length() && i<s2.length(); i++){
-            char a = s1.charAt(i);
-            char b = s2.charAt(i);
-            if(a<b){
-                c = 1;
-                break;
+class A extends Thread{
+    @Override
+    public void run(){
+        for(int i= 0 ; i<5; i++) {
+            try{
+                Thread.sleep(1000);
+                System.out.println(this.getName());
             }
-            else if(a>b)
-            {
-                c=-1;
-                break;
+            catch(InterruptedException e){
+                e.getStackTrace();
             }
-            else
-            {
-                continue;
-            }
+            
         }
-        return c;
     }
-    public static void main(String[] args) {
-        String str = "this is a apple";
-        String s2[] = str.split(" ");
-        int count = s2.length;
-        String temp;
-        int m=0;
-        myClass obj = new myClass();
-        for (int i = 0; i < count; i++)
-        {
-            for (int j = i + 1; j < count; j++)
-            {
-                m = obj.compareStr(s2[i],s2[j]);
-                if(m<0)
-                {
-                    temp = s2[i];
-                    s2[i] = s2[j];
-                    s2[j] = temp;
-                }
+}
+class B implements Runnable {
+    @Override
+    public void run(){
+        for(int i= 0 ; i<5; i++) {
+            try{
+                Thread.sleep(1000);
+                System.out.println(this.getName());
+            }
+            catch(InterruptedException e){
+                e.getStackTrace();
             }
         }
+    }
+}
 
-        for (String s : s2) {
-            System.out.println(s);
-        }
+class myClass {
+    public static void main(String [] args){
+        Thread t1 = new Thread(new A());
+        t1.setName("thread 1");
+        t1.start();
 
-
+        A t2 = new A();
+        t2.setName("thread 2");
+        t2.start();
     }
 }

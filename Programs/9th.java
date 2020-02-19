@@ -1,49 +1,47 @@
-/* Design classes having attributes for furniture where there are wooden chairs 
-and tables, metal chairs and tables. There are stress and fire tests for each products.
-*/
-interface Furniture {
-    boolean stressTest = false;
-    boolean fireTest = false;
-    void testPassed();
-}
+// Write a program to demonstrate the use of CountDownLatch
 
-interface Wooden extends Furniture{
-  boolean stressTest = true;
-  boolean fireTest = false;
-}
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-interface Metal extends Furniture{
-    boolean stressTest = true;
-    boolean fireTest = true;
-}
-
-class Tables implements Wooden, Metal {
+class Process implements Runnable{
+    private CountDownLatch latch;
+    public Process(CountDownLatch latch) {
+        this.latch = latch;
+    }
     @Override
-    public void testPassed() {
-        System.out.println("table");
-        System.out.println("stress test for wooden: " + Wooden.stressTest);
-        System.out.println("stress test for metal: " + Metal.stressTest);
-        System.out.println("fire test for wooden: " + Wooden.fireTest);
-        System.out.println("fire test for metal: " + Metal.fireTest);
+    public void run() {
+        System.out.println("Started..");
+
+        try {
+            Thread.sleep(3000);
+        }
+        catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        latch.countDown();
     }
 }
-
-class Chair implements Wooden, Metal {
-    @Override
-    public void testPassed() {
-        System.out.println("chair");
-        System.out.println("stress test for wooden: " + Wooden.stressTest);
-        System.out.println("stress test for metal: " + Metal.stressTest);
-        System.out.println("fire test for wooden: " + Wooden.fireTest);
-        System.out.println("fire test for metal: " + Metal.fireTest);
-    }
-}
-
 class myClass {
-    public static void main(String [] args) {
-        Tables table = new Tables();
-        table.testPassed();
-        Chair chair = new Chair();
-        chair.testPassed();
+    public static void main(String[] args) {
+        CountDownLatch latch = new CountDownLatch(3);
+
+        ExecutorService executor  = Executors.newFixedThreadPool(3);
+
+        for(int i=0; i<3; i++) {
+            executor.submit(new Process(latch));
+        }
+
+        try {
+            latch.await();
+        }
+        catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("completed..." + latch.getCount());
+
+        executor.shutdown();
     }
 }

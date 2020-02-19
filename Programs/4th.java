@@ -1,27 +1,59 @@
-// WAP to create singleton class.
+/* Write a program to create a Thread pool of 2 threads where one 
+Thread will print even numbers and other will print odd numbers.
+*/
 
-class Singleton {
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-    private static Singleton singleton;
- 
-    private Singleton() { }
- 
-    public static Singleton getInstance( ) {
-        if(singleton == null)   {
-            return new Singleton( );
-        }
-       return singleton;
+
+
+class Even implements Runnable{
+    int num = 1;
+    @Override
+    public void run() {
+        while(true) {
+            try{
+                Thread.sleep(500);
+            }
+            catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            if(num % 2 == 0) {
+                System.out.println("thread 1 " +num);
+            }
+            num++;
     }
- 
-    protected void show( ) {
-       System.out.println("hi from singleton");
-    }
- }
+}
+}
 
-class SingletonDemo {
+class Odd implements Runnable{
+    int num = 1;
+    @Override
+    public void run() {
+        while(true) {
+            try{
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            if(num % 2 != 0) {
+                System.out.println("thread 2 " +num);
+            }
+            num++;
+    }
+}
+}
+
+
+class myClass {
     public static void main(String[] args) {
-       Singleton obj = Singleton.getInstance( );
-       obj.show( );
-    }
- }
+        ExecutorService executor = Executors.newFixedThreadPool(2);
 
+            executor.submit(new Even());
+            executor.submit(new Odd());
+
+        executor.shutdown();
+    }
+}

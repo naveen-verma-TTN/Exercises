@@ -1,40 +1,67 @@
-// WAP to show object cloning in java using cloneable and copy constructor both.
-class myClone implements Cloneable{
-    private int a;
+import java.util.Scanner;
 
-    public myClone(){
-    }
+// Write a program to demonstrate wait and notify methods.
 
-    // copying the members of the class using other object..
-    public myClone(myClone obj){
-        this.a = obj.a;
-    }
-    public void setStr(int a){
-        this.a = a;
-    }
-    public void display(){
-        System.out.println("The String is "+a);
-    }
-
-    @Override
-    protected Object clone(){
-        try{
-        return super.clone();
+class Process{
+    public void produce() throws InterruptedException {
+        synchronized(this) {
+            System.out.println("Producer thread running...");
+            wait();
+            System.out.println("Resumed");
         }
-        catch(Exception e) {
-            System.out.println(e.toString());
-            return null;
+    }
+
+    public void consumer() throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        Thread.sleep(2000);
+
+        synchronized(this){
+            System.out.println("waiting for return key.");
+            sc.nextLine();
+            System.out.println("Return key pressed.");
+            notify();
         }
     }
 }
-class myClass {
-    public static void main(String [] args) {
-        myClone obj1 = new myClone();
-        obj1.setStr(2);
-        obj1.display();
-        myClone obj2 = new myClone(obj1);
-        obj2.display();
-        myClone obj3 = (myClone)obj2.clone();
-        obj3.display();
+
+class myClass{
+    public static void main(String[] args) {
+        Process obj = new Process();
+        Thread t1 = new Thread(new Runnable(){
+        
+            @Override
+            public void run() {
+              try {
+                  obj.produce();
+              }
+              catch(InterruptedException e) {
+                  e.printStackTrace();
+              }
+            }
+        });
+
+        Thread t2 = new Thread(new Runnable(){
+        
+            @Override
+            public void run() {
+              try {
+                  obj.consumer();
+              }
+              catch(InterruptedException e) {
+                  e.printStackTrace();
+              }
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
     }
 }

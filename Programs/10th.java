@@ -1,57 +1,90 @@
-/* Design classes having attributes and method(only skeleton) for a coffee shop. There are three different actors in our scenario and i have listed the different actions they do also below
-* Customer
- - Pays the cash to the cashier and places his order, get a token number back
- - Waits for the intimation that order for his token is ready
- - Upon intimation/notification he collects the coffee and enjoys his drink
- ( Assumption: Customer waits till the coffee is done, he wont timeout and cancel the order. Customer always likes the drink served. Exceptions like he not liking his coffee, he getting wrong coffee are not considered to keep the design simple.)
-* Cashier
- - Takes an order and payment from the customer
- - Upon payment, creates an order and places it into the order queue
- - Intimates the customer that he has to wait for his token and gives him his token
- ( Assumption: Token returned to the customer is the order id. Order queue is unlimited. With a simple modification, we can design for a limited queue size)
-* Barista
-- Gets the next order from the queue
-- Prepares the coffee
-- Places the coffee in the completed order queue
-- Places a notification that order for token is ready
-*/
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-  
-class Customer{
-    String name;
-    long contact;
-    public void wait_for_coffee(){}
-    public void collects_coffee(){}
+// Write a program which creates deadlock between 2 threads
 
-}
+class myThread {
+    private Lock lock1 = new ReentrantLock();
+    private Lock lock2 = new ReentrantLock();
 
-class Cashier{
-    String name;
-    String Empid;
-    public int take_order(double cash)
-    {
-        return 0;
+    private int count = 0;
+
+    public void firstThread() throws InterruptedException{
+        for(int i=0 ; i<1000; i++) {
+            try{
+
+                // deadlock occurs at this point.... as lock1 is locked is firstThread
+                lock1.lock();
+                lock2.lock();
+                count++;
+            }
+            finally{
+                lock1.unlock();
+                lock2.unlock();
+            }
+        }
     }
-    public void placeOrderToQueue(Order o){}
+
+    public void secondThread() throws InterruptedException{
+        for(int i=0 ; i<1000; i++) {
+            try{
+
+                // deadlock occurs at this point.... as lock2 is locked is secondThread
+                lock2.lock();
+                lock1.lock();
+                count++;
+            }
+            finally{
+                lock1.unlock();
+                lock2.unlock();
+            }
+        }
+        
+    }
+
+    public void finished() {
+        System.out.println("Count " + count);
+    }
 }
 
-class Order{
-int order_id;
-String coffee_type;
-}
+class myClass {
+    public static void main(String[] args) {
+        final myThread obj = new myThread();
+        Thread t1 = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    obj.firstThread();
+                } 
+                catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread t2 = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    obj.secondThread();
+                } 
+                catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
-class Barista{
-    public void Prepare_coffee(Order o) {}
-    public void addCompleteOrder(Order o) {}
-    public void notifyCompleteOrder(order o) {}
-}
+        t1.start();
+        t2.start();
 
-class PendingOrderQueue
-{
-    public void addOrder(Order o){}
-    public void getNextOrder(Order o){}
-}
+        try{
+            t1.join();
+            t2.join();
+        }
+        catch(InterruptedException e) {
+            e.printStackTrace();
+        }
 
-class CompleteOrders{
-    public void getcompleteOrders(){}
+        obj.finished();
+    }
+
 }

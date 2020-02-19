@@ -1,26 +1,24 @@
-// WAP showing try, multi-catch and finally blocks.
-class myClass {
-    public static void main(String [] args) {
-        int num[] = new int[5];
-        for( int i=0; i<5; i++) {
-            num[i] = i;
-        } 
-
-        try {
-            System.out.println(num[5]);
-        }
-        catch(ArithmeticException e) {
-            System.out.println("ArithmeticException");
-        }
-        catch(ArrayIndexOutOfBoundsException e) {
-            System.out.println("ArrayIndexOutOfBoundsException");
-        }
-        catch(Exception e){
-            System.out.println("Exception");
-        }
-        finally{
-            System.out.println("finally");
-        }
-
+// Write a program to demonstrate sleep and join methods.
+class myThread extends Thread{  
+ public void run(){  
+  for(int i=1 ; i<=5; i++){  
+   try{  
+    Thread.sleep(500);  
+   }
+   catch(Exception e){System.out.println(e);}  
+   System.out.println(this.getName() + " " + i);  
+  }  
+ }  
+public static void main(String args[]){  
+    myThread t1=new myThread();  
+    myThread t2=new myThread();  
+    myThread t3=new myThread();  
+    t1.start();  
+    try{
+        t1.join();  
     }
-}
+    catch(Exception e){System.out.println(e);}  
+    t2.start();  
+    t3.start();  
+    }  
+}  
