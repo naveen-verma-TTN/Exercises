@@ -1,4 +1,5 @@
 // Write a program to demonstrate sleep and join methods.
+
 class myThread extends Thread{  
  public void run(){  
   for(int i=1 ; i<=5; i++){  

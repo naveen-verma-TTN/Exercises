@@ -13,7 +13,7 @@ class myThread {
         for(int i=0 ; i<1000; i++) {
             try{
 
-                // deadlock occurs at this point.... as lock1 is locked is firstThread
+                // deadlock occurs at this point.... as lock1 is locked by firstThread
                 lock1.lock();
                 lock2.lock();
                 count++;
@@ -29,7 +29,7 @@ class myThread {
         for(int i=0 ; i<1000; i++) {
             try{
 
-                // deadlock occurs at this point.... as lock2 is locked is secondThread
+                // deadlock occurs at this point.... as lock2 is locked by secondThread
                 lock2.lock();
                 lock1.lock();
                 count++;

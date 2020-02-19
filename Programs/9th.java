@@ -29,6 +29,8 @@ class myClass {
 
         ExecutorService executor  = Executors.newFixedThreadPool(3);
 
+        System.out.println("Remaining..." + latch.getCount());
+
         for(int i=0; i<3; i++) {
             executor.submit(new Process(latch));
         }
@@ -40,7 +42,7 @@ class myClass {
             e.printStackTrace();
         }
         
-        System.out.println("completed..." + latch.getCount());
+        System.out.println("Remaining..." + latch.getCount());
 
         executor.shutdown();
     }

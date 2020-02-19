@@ -1,6 +1,6 @@
-import java.util.Scanner;
-
 // Write a program to demonstrate wait and notify methods.
+
+import java.util.Scanner;
 
 class Process{
     public void produce() throws InterruptedException {

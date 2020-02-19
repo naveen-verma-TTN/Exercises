@@ -3,22 +3,17 @@
 class myClass {
     private int count = 0;
 
-
     // locking objects 
     private Object obj1 = new Object();
     private Object obj2 = new Object();
 
-    public static void main(String[] args) {
-        myClass obj = new myClass();
-        obj.doSomeWork();
-    }
 
     // synchronized method
     public synchronized void increment(){
         count++;
     }
 
-    // synchronized blocks
+    // synchronized block
     void stageOne() {
         synchronized(obj1){
             try{
@@ -32,6 +27,7 @@ class myClass {
         }
     }
 
+    // synchronized block
     void stageTwo() {
         synchronized(obj2){
             try{
@@ -87,5 +83,10 @@ class myClass {
         }
 
         System.out.println("count " +count);
+    }
+
+    public static void main(String[] args) {
+        myClass obj = new myClass();
+        obj.doSomeWork();
     }
 }

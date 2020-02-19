@@ -3,7 +3,7 @@
 import java.util.*;
 class A extends Thread{
     /* it will notify that the value of "running" can be changed at runtime
-        and not should not retained the value from cache. 
+        and prevent it to retained the value from cache. 
     */
     private volatile boolean running = true;
     @Override
@@ -20,6 +20,7 @@ class A extends Thread{
     }
 
     public void shutdown () {
+        System.out.println("Terminating..");
         running = false;
     }
 }

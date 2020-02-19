@@ -33,7 +33,7 @@ class myThread extends Thread
                 for(int i=0; i < 5; i++) 
                 { 
                     count++; 
-                    System.out.println(tName + ": " + count); 
+                    System.out.println(tName + " " + count); 
           
                     Thread.sleep(10); 
                 } 
@@ -59,7 +59,7 @@ class myThread extends Thread
                 for(int i=0; i < 5; i++) 
                 { 
                     count--; 
-                    System.out.println(tName + ": " + count); 
+                    System.out.println(tName + " " + count); 
           
                     Thread.sleep(10); 
                 } 
@@ -87,6 +87,6 @@ class myClass
         t1.join(); 
         t2.join(); 
           
-        System.out.println("count: " + myThread.count); 
+        System.out.println("count " + myThread.count); 
     } 
 } 
