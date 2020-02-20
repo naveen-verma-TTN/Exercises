@@ -1,37 +1,25 @@
-// Write a programe do to demonstrate the use of volatile keyword.
+/* Write Java code to define List . Insert 5 floating point numbers in List, 
+and using an iterator, find the sum of the numbers in List.
+*/
 
-import java.util.*;
-class A extends Thread{
-    /* it will notify that the value of "running" can be changed at runtime
-        and prevent it to retained the value from cache. 
-    */
-    private volatile boolean running = true;
-    @Override
-    public void run(){
-        while(running) {
-            try{Thread.sleep(500);
-                System.out.println(" Running ");
-            }
-            catch(InterruptedException e){
-                e.getStackTrace();
-            }
-            
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+
+class myClass {
+    public static void main(String[] args) {
+        List<Float> list = new ArrayList<Float>();
+        list.add(12.34F);
+        list.add(23.43F);
+        list.add(14.23F);
+        list.add(32.4F);
+        list.add(56.21F);
+        float sum = 0;
+        ListIterator<Float> iterator = list.listIterator();
+        while(iterator.hasNext()){
+            sum += iterator.next(); 
         }
-    }
-
-    public void shutdown () {
-        System.out.println("Terminating..");
-        running = false;
-    }
-}
-class myClass{
-    public static void main(String [] args) {
-        A t1 = new A();
-        t1.start();
-        Scanner sc = new Scanner(System.in);
-        sc.nextLine();
-
-        t1.shutdown();
-        sc.close();
+        System.out.println("Sum: " + sum);
     }
 }
