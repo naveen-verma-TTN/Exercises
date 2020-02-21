@@ -3,18 +3,11 @@ class myClass {
     public static void main(String[] args) 
     { 
         String str = "ttttTnnTn$##3#"; 
+        char ch = 't';
         myClass obj = new myClass();
-        obj.traverseChars(str,0,0); 
+        System.out.println("Count of " + ch + ": " + obj.countOccurrences(str,ch,0));
+        
     }  
-
-    public void traverseChars(String str, int ch, int i) {
-        if(ch<255){
-            traverseChars(str, ++ch, i);
-        }
-        int count = countOccurrences(str,(char)ch,0);
-        if(count != 0)
-        System.out.println("Count of " + (char)ch + ": " + count);
-    }
 
     public int countOccurrences(String str, char ch, int i){
          if((i=str.indexOf(ch, i)) == -1){
