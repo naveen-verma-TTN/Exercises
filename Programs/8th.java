@@ -82,7 +82,7 @@ class SupportStack extends Stack<Integer>
 }
 
 
-public class Q8
+class myClass
 {
     public static void main(String[] args) {
 
@@ -102,29 +102,46 @@ public class Q8
             switch(ch)
             {
                 case 1:
+                if(stack.size() != n) {
                     System.out.println("Enter the Element: ");
                     int d = obj.nextInt();
                     stack.push(d);
+                    System.out.println(d+" PUSHED INTO STACK");
+                }
+                else {
+                    System.out.println("\n STACK IS FULL ! POP OUT ELEMENT BEFORE PUSH. \n");
+                }
                     break;
 
                 case 2:
+                if(!stack.isEmpty()) {
                     int x = stack.pop();
-                    System.out.println(x);
+                    System.out.println("POP :" + x);
+                }
+                else {
+                    System.out.println("\n Empty \n");
+                }
                     break;
 
                 case 3:
-                    stack.isEmpty();
+                    if(stack.isEmpty()) 
+                    System.out.println("\n Empty \n");
+                    else
+                    System.out.println("\n Not Empty \n");
                     break;
 
                 case 4:
-                    if(stack.size() == 20)
-                        System.out.println("Stack full");
+                    if(stack.size() == n)
+                        System.out.println("\n Stack full \n");
                     else
-                        System.out.println("Not yet full.");
+                        System.out.println("\n Not yet full. \n");
                     break;
 
                 case 5:
-                    System.out.println(stack.getMin());
+                if(!stack.isEmpty())
+                    System.out.println("\n MINIMUM ELEMENT: " + stack.getMin() + "\n");
+                else
+                    System.out.println("\n Empty \n");
                     break;
 
             }
