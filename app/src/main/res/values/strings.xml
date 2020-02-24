@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LogIn</string>
+    <string name="logintitle">LogIn Page</string>
+    <string name="username">Email</string>
+    <string name="password">Password</string>
+    <string name="btn_text_login">LogIn</string>
+    <string name="btn_text_cancel">Cancel</string>
+    <string name="hint_email">abc@xyz.com</string>
+    <string name="hint_password">password</string>
+    <string name="msg_1">Email id should not be null</string>
+    <string name="msg_2">Password should not be null</string>
+    <string name="msg_3">Invalid email. Please enter valid email.</string>
+    <string name="success_mgs">Login successfully</string>
+    <string name="msg_4">Invalid email or password</string>
+
+</resources>
