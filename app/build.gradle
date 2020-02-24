@@ -12,26 +12,20 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
-        release {
-            storeFile file("../myKey.jks")
-            storePassword "123456"
-            keyAlias "key1"
-            keyPassword "123456"
-        }
         QA {
-            storeFile file("../myKey.jks")
+            storeFile file("../KeyStore/QA.jks")
             storePassword "123456"
             keyAlias "key1"
             keyPassword "123456"
         }
         PROD {
-            storeFile file("../myKey.jks")
+            storeFile file("../KeyStore/PROD.jks")
             storePassword "123456"
             keyAlias "key1"
             keyPassword "123456"
         }
         DEV {
-            storeFile file("../myKey.jks")
+            storeFile file("../KeyStore/DEV.jks")
             storePassword "123456"
             keyAlias "key1"
             keyPassword "123456"
@@ -39,7 +33,7 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.QA
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
