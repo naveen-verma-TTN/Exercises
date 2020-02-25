@@ -4,71 +4,17 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.example.login"
+        applicationId "com.example.activityandintents"
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
-        QA {
-            storeFile file("../KeyStore/QA.jks")
-            storePassword "123456"
-            keyAlias "key1"
-            keyPassword "123456"
-        }
-        PROD {
-            storeFile file("../KeyStore/PROD.jks")
-            storePassword "123456"
-            keyAlias "key1"
-            keyPassword "123456"
-        }
-        DEV {
-            storeFile file("../KeyStore/DEV.jks")
-            storePassword "123456"
-            keyAlias "key1"
-            keyPassword "123456"
-        }
-    }
     buildTypes {
         release {
-            signingConfig signingConfigs.QA
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    // Create an Application with different product Flavor as QA, PROD and DEV.
-    // All the flavor should have different application id.
-    flavorDimensions('environment')
-    productFlavors {
-        QA {
-            dimension = 'environment'
-            applicationIdSuffix = '.QA'
-            applicationId = 'com.example.login.qa'
-            resValue 'string', 'APP_NAME', "Login QA"
-            signingConfig signingConfigs.QA
-            versionCode 1
-            versionName "1.0.1"
-        }
-        PROD {
-            dimension = 'environment'
-            applicationIdSuffix = '.PROD'
-            applicationId = 'com.example.login.prod'
-            resValue 'string', 'APP_NAME', "Login PROD"
-            signingConfig signingConfigs.PROD
-            versionCode 2
-            versionName "1.0.2"
-        }
-        DEV {
-            dimension = 'environment'
-            applicationIdSuffix = '.DEV'
-            applicationId = 'com.example.login.dev'
-            resValue 'string', 'APP_NAME', "Login DEV"
-            signingConfig signingConfigs.DEV
-            versionCode 1
-            versionName "1.0.3"
         }
     }
 }
@@ -77,7 +23,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.support:design:29.0.0'

@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.activityandintents;
 
 import org.junit.Test;
 
