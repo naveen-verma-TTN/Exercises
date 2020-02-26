@@ -1,4 +1,4 @@
-package com.example.activityandintents;
+package com.example.layout_design;
 
 import org.junit.Test;
 

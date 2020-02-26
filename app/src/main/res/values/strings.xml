@@ -1,28 +1,15 @@
 <resources>
-    <string name="app_name">Activity and Intents</string>
-    <string name="logintitle">LogIn Page</string>
+    <string name="app_name">Layout_Design</string>
+    <string name="title_login">Foodie App</string>
     <string name="username">Username</string>
-    <string name="email">Email</string>
-    <string name="phone">Phone number</string>
     <string name="password">Password</string>
-    <string name="btn_text_login">Sign Up</string>
-    <string name="btn_text_cancel">Cancel</string>
-    <string name="hint_username">abc</string>
-    <string name="hint_phone">phone number</string>
-    <string name="hint_email">abc@xyz.com</string>
-    <string name="hint_password">password</string>
-    <string name="msg_1">Username should not be Empty</string>
-    <string name="msg_2">Email id should not be Empty</string>
-    <string name="msg_3">Phone should not be Empty</string>
-    <string name="msg_4">Password should not be Empty</string>
-    <string name="msg_5">Invalid email. Please enter valid email.</string>
-    <string name="msg_7">Phone Should be of 10 digits</string>
-    <string name="success_mgs">Register successfully</string>
-    <string name="msg_6">Invalid email or password</string>
-    <string name="web">web</string>
-    <string name="permission">Permission</string>
-    <string name="link_hint">www.google.com</string>
-    <string name="msg_8">Please enter the URL in textField</string>
-    <string name="info">info</string>
-
+    <string name="forget_password">forget password?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="res_name">Noodles Italian Cafe</string>
+    <string name="location">145, Mall of India</string>
+    <string name="reviews">570 reviews</string>
+    <string name="time">21 Mar 2019 11:00 AM</string>
+    <string name="price">Rs. 180</string>
 </resources>
