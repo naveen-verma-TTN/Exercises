@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view2"
+    android:elevation="50dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/banner"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:padding="10dp"
+        android:text="title"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:paddingStart="10dp"
+        android:text="description"
+        android:textSize="20sp"
+        android:layout_toStartOf="@+id/banner"
+        android:textStyle="bold"
+        android:layout_below="@id/title"
+        android:layout_alignParentStart="true"/>
+
+
+
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="10dp"
+            android:layout_below="@id/description"
+            android:text="Headlines"
+            android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:padding="10dp"
+        android:layout_below="@id/description"
+        android:layout_toEndOf="@id/heading"
+        android:text="Time"
+        android:textSize="15sp" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/description"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/imageView3"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/newsicon" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="15dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/description"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/dots_menu" />
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
