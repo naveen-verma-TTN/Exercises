@@ -68,24 +68,25 @@
 
         <TextView
             android:id="@+id/heading"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:padding="10dp"
-            android:text="Headlines"
-            android:textSize="10sp" />
+            android:text="@string/headlines"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/time"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="50dp"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="time"
-            android:textSize="10dp" />
+            android:layout_weight="2.5"
+            android:text="@string/time"
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/imageView2"
