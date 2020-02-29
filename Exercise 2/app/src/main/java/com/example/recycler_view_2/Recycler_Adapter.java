@@ -31,7 +31,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return view0;
         } else if (myData.get(position).getType() == 1) {
             return view1;
-        }else if (myData.get(position).getType() == 2) {
+        } else if (myData.get(position).getType() == 2) {
             return view2;
         }
         return -1;
@@ -69,6 +69,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case view0:
                 ViewHolder0 vh0 = (ViewHolder0) holder;
                 vh0.ds.setText(myData.get(position).getTitle());
+                vh0.temprature.setText(context.getText(R.string.temperature));
                 break;
             case view1:
                 ViewHolder1 vh1 = (ViewHolder1) holder;
@@ -92,15 +93,18 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return myData == null ? 0 : myData.size();
     }
 
-    static class ViewHolder0 extends RecyclerView.ViewHolder{
+    static class ViewHolder0 extends RecyclerView.ViewHolder {
         TextView ds;
+        TextView temprature;
+
         ViewHolder0(@NonNull View itemView) {
             super(itemView);
             ds = itemView.findViewById(R.id.ds);
+            temprature = itemView.findViewById(R.id.temprature);
         }
     }
 
-    static class ViewHolder1 extends RecyclerView.ViewHolder{
+    static class ViewHolder1 extends RecyclerView.ViewHolder {
         ImageView banner_image;
         TextView title_tv;
         TextView description_tv;
@@ -115,7 +119,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    static class ViewHolder2 extends RecyclerView.ViewHolder{
+    static class ViewHolder2 extends RecyclerView.ViewHolder {
         ImageView banner_image;
         TextView title_tv;
         TextView description_tv;

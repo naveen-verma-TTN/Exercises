@@ -4,9 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 // Exercise 2: Create a Recycler View to show some of the news by creating some dummy data from the API -
@@ -27,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         Recycler_init();
     }
 
-    void Recycler_init(){
-        dummyDATA();
+    void Recycler_init() {
+        getData();
         RecyclerView recyclerView = findViewById(R.id.recycler);
         RecyclerAdapter adapter = new RecyclerAdapter(myData, MainActivity.this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -36,13 +48,51 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void dummyDATA() {
-        myData.add(new MyData(null,"Top news briefing",null,null,0));
-        myData.add(new MyData("https://www.pajiba.com/assets_c/2020/02/GettyImages-510287850-thumb-700x493-222732.jpg",getString(R.string.title),getString(R.string.desc),getString(R.string.time),1));
-        myData.add(new MyData("https://www.newsbtc.com/wp-content/uploads/2020/02/shutterstock_376214587-1200x780.jpg",getString(R.string.title2),getString(R.string.desc2),getString(R.string.time2),2));
-        myData.add(new MyData("https://www.newsbtc.com/wp-content/uploads/2020/02/shutterstock_376214587-1200x780.jpg",getString(R.string.title2),getString(R.string.desc2),getString(R.string.time2),2));
-        myData.add(new MyData("https://www.newsbtc.com/wp-content/uploads/2020/02/shutterstock_376214587-1200x780.jpg",getString(R.string.title2),getString(R.string.desc2),getString(R.string.time2),2));
-        myData.add(new MyData("https://www.newsbtc.com/wp-content/uploads/2020/02/shutterstock_376214587-1200x780.jpg",getString(R.string.title2),getString(R.string.desc2),getString(R.string.time2),2));
-        myData.add(new MyData("https://www.newsbtc.com/wp-content/uploads/2020/02/shutterstock_376214587-1200x780.jpg",getString(R.string.title2),getString(R.string.desc2),getString(R.string.time2),2));
+    private void getData() {
+        myData.add(new MyData(null, "Top news briefing", null, null, 0));
+        parseJson();
+    }
+
+    private void parseJson() {
+        String str = getContentFromJson();
+        try {
+            JSONObject jObject = new JSONObject(str);
+            JSONArray jArray = jObject.getJSONArray("articles");
+
+            for (int i = 0; i < jArray.length(); i++) {
+                try {
+                    JSONObject oneObject = jArray.getJSONObject(i);
+                    String urlToImage = oneObject.getString("urlToImage");
+                    String title = oneObject.getString("title");
+                    String description = oneObject.getString("description");
+                    String publishedAt = oneObject.getString("publishedAt");
+                    if (i == 0) {
+                        myData.add(new MyData(urlToImage, title, description, publishedAt, 1));
+                    } else {
+                        myData.add(new MyData(urlToImage, title, description, publishedAt, 2));
+                    }
+                } catch (JSONException e) {
+                    Log.e(TAG, "parseJson Exception");
+                }
+            }
+        } catch (JSONException e) {
+            Log.e(TAG, "parseJson Exception: " + e.getMessage());
+        }
+    }
+
+    private String getContentFromJson() {
+        InputStream inputStream = this.getResources().openRawResource(R.raw.news_data);
+        String temp;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder out = new StringBuilder();
+        try {
+            while (((temp = reader.readLine()) != null)) {
+                out.append(temp);
+            }
+            return out.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
