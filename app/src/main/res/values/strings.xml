@@ -12,4 +12,6 @@
     <string name="reviews">570 reviews</string>
     <string name="time">21 Mar 2019 11:00 AM</string>
     <string name="price">Rs. 180</string>
+    <string name="food_image">Food Image</string>
+    <string name="description_image">description_image</string>
 </resources>
