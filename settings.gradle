@@ -1,0 +1,5 @@
+rootProject.name='Fragment Handling'
+include ':app'
+include ':question2'
+include ':question3'
+include ':question4'

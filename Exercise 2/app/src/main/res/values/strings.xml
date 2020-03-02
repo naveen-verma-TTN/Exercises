@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">recycler_view_2</string>
-    <string name="api_key">5d449eabe7834dc8918937a58a83fa61</string>
-    <string name="name">name</string>
-    <string name="temperature">25º C</string>
-    <string name="headlines">Headlines</string>
-    <string name="time">time</string>
-
-</resources>
