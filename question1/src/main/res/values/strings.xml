@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">question1</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="address">Address</string>
+    <string name="phone">phone</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+</resources>

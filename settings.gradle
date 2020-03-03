@@ -1,5 +1,3 @@
-rootProject.name='Fragment Handling'
+rootProject.name='Introduction to Shared Preference and Sqlite'
 include ':app'
-include ':question2'
-include ':question3'
-include ':question4'
+include ':question1'
