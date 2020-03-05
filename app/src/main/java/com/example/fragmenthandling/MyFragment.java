@@ -50,6 +50,7 @@ public class MyFragment extends Fragment {
         Log.e(TAG,"onResume");
     }
 
+    ;
     @Override
     public void onStop() {
         super.onStop();

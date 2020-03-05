@@ -15,12 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG,"onCreate");
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Log.d(TAG,"onStart");
+
     }
 
     @Override

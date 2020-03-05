@@ -1,4 +1,4 @@
-//Observe Lifecycle of Fragment with activity while using Add, Replace, hide, show, remove
+// Observe Lifecycle of Fragment with activity while using Add, Replace, hide, show, remove
 
 package com.example.question2;
 

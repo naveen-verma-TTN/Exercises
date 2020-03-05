@@ -1,13 +1,20 @@
 package com.example.quesion4;
 
-public class MyData {
+class MyData {
     private String name;
 
-    public MyData(String name) {
+    MyData(String name, String colorCode) {
         this.name = name;
+        this.colorCode = colorCode;
     }
 
-    public String getName() {
+    private String colorCode;
+
+    String getColorCode() {
+        return colorCode;
+    }
+
+    String getName() {
         return name;
     }
 
