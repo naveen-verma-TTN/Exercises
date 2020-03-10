@@ -1,3 +1,3 @@
-rootProject.name='Introduction to Shared Preference and Sqlite'
+rootProject.name='Android - storage part 2'
 include ':app'
-include ':question1'
+include ':fileexplorer'

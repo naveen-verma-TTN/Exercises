@@ -1,11 +1,13 @@
 <resources>
-    <string name="app_name">Introduction to Shared Preference and Sqlite</string>
-    <string name="title_login">Login</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="forget_password">forget password?</string>
-    <string name="sign_in">Submit</string>
-    <string name="no_account">Don\'t have an account?</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="log_out">Log Out</string>
+    <string name="app_name">Android - storage part 2</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="address">Address</string>
+    <string name="phone">phone</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="delete_message">\" is deleted from records\"</string>
+    <string name="update_message">\" is Updated in the records\"</string>
+    <string name="item_error_message">Please insert employee name, phone number and address.</string>
+    <string name="insert_message">\" is inserted successfully\"</string>
+    <string name="save">Save</string>
 </resources>

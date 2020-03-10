@@ -1,72 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.08"
-        android:gravity="center"
-        android:text="@string/title_login"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        android:textStyle="bold"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/mylayout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        app:backgroundTint="#00FFFFFF"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
-        android:layout_weight="0.005"
-        android:padding="10dp"
-        android:background="@drawable/stroke"
-        android:gravity="center"
-        android:hint="@string/username"
-        android:singleLine="true"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
-        android:layout_weight="0.005"
-        android:padding="10dp"
-        android:inputType="textPassword"
-        android:background="@drawable/stroke"
-        android:gravity="center"
-        android:hint="@string/password"
-        android:singleLine="true"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF" />
+        app:maxImageSize="40dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/button_background"
-        android:text="@string/sign_in"
-        android:onClick="login"
-        android:textSize="20sp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="100dp"
-        android:textColor="#2196F3" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
