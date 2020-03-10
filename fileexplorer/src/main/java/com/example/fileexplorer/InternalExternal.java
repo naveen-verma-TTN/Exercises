@@ -127,32 +127,15 @@ public class InternalExternal extends AppCompatActivity {
         }
     }
 
-    /**
-     * Share the file saved in the internal space
-     */
 
-    public void shareInternal(View view) {
-        if (fnameInternal == null && internalDir == null) {
-            Toast.makeText(this, "First store the file in internal space.",
-                    Toast.LENGTH_LONG).show();
-        } else {
-            String path = MediaStore.Images.Media.insertImage(getContentResolver(), photo, fnameInternal, null);
-            Uri uri = Uri.parse(path);
-
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("image/png");
-            intent.putExtra(Intent.EXTRA_STREAM, uri);
-            startActivity(Intent.createChooser(intent, "Share Image from Internal space"));
-        }
-    }
 
     /**
-     * Share the file saved in the external space
+     * Share the image file
      */
 
-    public void shareExternal(View view) {
+    public void share(View view) {
         if (fnameExternal == null && externalDir == null) {
-            Toast.makeText(this, "First store the file in external space.",
+            Toast.makeText(this, "First store the file in external space or internal space.",
                     Toast.LENGTH_LONG).show();
         } else {
             String path = MediaStore.Images.Media.insertImage(getContentResolver(), photo, fnameExternal, null);
@@ -161,7 +144,7 @@ public class InternalExternal extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("image/png");
             intent.putExtra(Intent.EXTRA_STREAM, uri);
-            startActivity(Intent.createChooser(intent, "Share Image form External space"));
+            startActivity(Intent.createChooser(intent, "Share Image"));
         }
     }
 

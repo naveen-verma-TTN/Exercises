@@ -4,12 +4,9 @@
     <string name="timestamp">timestamp</string>
     <string name="first_text_label"><![CDATA[1. Create an app to show list of file & folders in a user’s device.\n2. User can navigate the structure\n3. If a user clicks a file, try to open the file with a relevant app]]></string>
     <string name="first">first</string>
-    <string name="second_text_label">4. Save one image file inside app’s private space and one in internal memory.\n5. Try sharing both the files on different share button click</string>
+    <string name="second_text_label">4. Save one image file inside app’s private space and one in internal memory.\n5. Try sharing the file using share button click</string>
     <string name="second">second</string>
-    <string name="third_text_label">5.Try sharing both the files on different share button click</string>
-    <string name="third">third</string>
     <string name="save_to_internal_storage">Save to Internal Storage</string>
     <string name="save_to_external_storage">Save to External Storage</string>
-    <string name="share_to_internal_storage">Share to Internal Storage</string>
-    <string name="share_to_external_storage">Share to External Storage</string>
+    <string name="share_file">Share the file</string>
 </resources>
