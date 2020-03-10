@@ -1,9 +1,3 @@
-/*  1. Create an app to show list of file & folders in a user’s device.
-    2. User can navigate the structure
-    3. If a user clicks a file, try to open the file with a relevant app
-    4. Save one image file inside app’s private space and one in internal memory
-    5. Try sharing both the files on different share button click
- */
 package com.example.fileexplorer;
 
 import androidx.appcompat.app.AppCompatActivity;
