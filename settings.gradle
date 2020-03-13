@@ -1,3 +1,2 @@
-rootProject.name='Android - storage part 2'
+rootProject.name='Notification Styling and Push Notification'
 include ':app'
-include ':fileexplorer'

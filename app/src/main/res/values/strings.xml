@@ -1,13 +1,5 @@
 <resources>
-    <string name="app_name">Android - storage part 2</string>
-    <string name="employee_name">Employee Name</string>
-    <string name="address">Address</string>
-    <string name="phone">phone</string>
-    <string name="delete">DELETE</string>
-    <string name="update">UPDATE</string>
-    <string name="delete_message">\" is deleted from records\"</string>
-    <string name="update_message">\" is Updated in the records\"</string>
-    <string name="item_error_message">Please insert employee name, phone number and address.</string>
-    <string name="insert_message">\" is inserted successfully\"</string>
-    <string name="save">Save</string>
+    <string name="app_name">Notification Styling and Push Notification</string>
+    <string name="default_notification_channel_id">1002</string>
+    <string name="FirebaseMessagingToken">fz1GYSYBSqeSYNeFGrzuCy:APA91bELiwdiZ-k2k81MwV_jGo7yPOZBg_EHINJF2uoKJm8W9tLn9g0mlR70FzZg9X-Xt_2PgSqEMGwB_x7INakr53no_qn1QAnKXFp7bbMa-goGA-C7fF04gcV0jjNPhu2xqnViXQee</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.android_storagepart2;
+package com.example.notificationstylingandpushnotification;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.android_storagepart2", appContext.getPackageName());
+        assertEquals("com.example.notificationstylingandpushnotification", appContext.getPackageName());
     }
 }
