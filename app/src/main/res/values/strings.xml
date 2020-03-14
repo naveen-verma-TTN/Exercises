@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Notification Styling and Push Notification</string>
-    <string name="default_notification_channel_id">1002</string>
-    <string name="FirebaseMessagingToken">fz1GYSYBSqeSYNeFGrzuCy:APA91bELiwdiZ-k2k81MwV_jGo7yPOZBg_EHINJF2uoKJm8W9tLn9g0mlR70FzZg9X-Xt_2PgSqEMGwB_x7INakr53no_qn1QAnKXFp7bbMa-goGA-C7fF04gcV0jjNPhu2xqnViXQee</string>
+    <string name="app_name">Performing Background Task &amp; Notification Part 2</string>
+    <string name="start_alarm">Start Alarm</string>
+    <string name="stop_alarm">Stop Alarm</string>
 </resources>

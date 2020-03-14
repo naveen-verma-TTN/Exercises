@@ -1,4 +1,4 @@
-package com.example.notificationstylingandpushnotification;
+package com.example.performingbackgroundtasknotificationpart2;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.notificationstylingandpushnotification", appContext.getPackageName());
+        assertEquals("com.example.performingbackgroundtasknotificationpart2", appContext.getPackageName());
     }
 }
