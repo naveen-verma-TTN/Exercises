@@ -1,4 +1,4 @@
-package com.example.performingbackgroundtasknotificationpart2;
+package com.example.threadasynctaskbroadcastservices;
 
 import org.junit.Test;
 

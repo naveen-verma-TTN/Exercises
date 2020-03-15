@@ -1,2 +1,2 @@
-rootProject.name='Performing Background Task & Notification Part 2'
+rootProject.name='Thread, Async Task, Broadcast, Services'
 include ':app'
