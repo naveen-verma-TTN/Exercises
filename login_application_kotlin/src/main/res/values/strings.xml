@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Login_Application_Kotlin</string>
+    <string name="login_title">LogIn Page</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="btn_text_login">Log In</string>
+    <string name="btn_text_cancel">Cancel</string>
+    <string name="hint_email">abc@xyz.com</string>
+    <string name="hint_password">password</string>
+    <string name="errorEmail">Email id should not be Empty</string>
+    <string name="errorPassword">Password should not be Empty</string>
+    <string name="errorEmailInvalid">Invalid email. Please enter valid email.</string>
+    <string name="successMessage">Login Successfully!</string>
+    <string name="emailPasswordInvalid">Invalid email or password</string>
+</resources>

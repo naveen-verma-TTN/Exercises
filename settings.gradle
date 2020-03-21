@@ -1,0 +1,3 @@
+rootProject.name='Master Application'
+include ':app'
+include ':login_application_kotlin'
