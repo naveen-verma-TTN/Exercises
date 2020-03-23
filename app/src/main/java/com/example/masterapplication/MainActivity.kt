@@ -1,6 +1,7 @@
 package com.example.masterapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val activityName = arrayOf(
-        "login_application_kotlin"
+        "login_application_kotlin",
+        "Exercise 11 : Android Integration With Web Services"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,11 +26,28 @@ class MainActivity : AppCompatActivity() {
         gotoBT.setOnClickListener {
             when (spinner.selectedItem) {
                 "login_application_kotlin" -> {
+                    Log.e("dfdd","sdss")
                     startActivity(packageManager.getLaunchIntentForPackage("com.example.login_application_kotlin"))
-                    Toast.makeText(this, "login_application_kotlin", Toast.LENGTH_LONG).show()
+                    makeToast(
+                        "login_application_kotlin"
+                    )
+                }
+                "Exercise 11 : Android Integration With Web Services" -> {
+                    startActivity(packageManager.getLaunchIntentForPackage("com.example.exercise11androidintegrationwithwebservices"))
+                    makeToast(
+                        "Exercise 11 : Android Integration With Web Services"
+                    )
                 }
             }
         }
+    }
 
+
+    private fun makeToast(message: String) {
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_LONG
+        ).show()
     }
 }
