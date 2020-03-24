@@ -1,3 +1,11 @@
+/**
+    1. Set background image of any layout. (via Glide and via HTTP URL connection)
+        https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg
+
+    2. Create a list by parsing below url, using both Retrofit & HttpURLConnection
+        https://storage.googleapis.com/network-security-conf-codelab.appspot.com/v2/posts.json
+ */
+
 package com.example.exercise11androidintegrationwithwebservices
 
 import android.content.Intent
