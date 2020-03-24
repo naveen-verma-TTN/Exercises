@@ -1,24 +1,32 @@
 package com.example.exercise11androidintegrationwithwebservices
 
-import com.google.gson.annotations.Expose
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-class MyDataClass {
-    data class MyData(
-        @Expose
-        @SerializedName("posts")
-        val posts: Posts
-    )
+/**
+ * POJO Class / Model Class
+ */
 
-    data class Posts(
-        @Expose
-        @SerializedName("name")
-        val name: String,
-        @Expose
-        @SerializedName("message")
-        val message: String,
-        @Expose
-        @SerializedName("profileImage")
-        val profileImage: String
-    )
-}
+@Parcelize
+class MyData(
+
+    @SerializedName("posts")
+    val posts: List<Posts>
+
+) : Parcelable
+
+@Parcelize
+data class Posts(
+
+    @SerializedName("name")
+    val name: String,
+
+    @SerializedName("message")
+    val message: String,
+
+    @SerializedName("profileImage")
+    val profileImage: String
+
+) : Parcelable
+

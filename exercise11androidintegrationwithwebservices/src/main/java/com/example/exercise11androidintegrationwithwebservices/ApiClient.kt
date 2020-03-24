@@ -6,12 +6,14 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * ApiClient Singleton class
+ */
 object ApiClient {
-
-    var BASE_URL:String="https://storage.googleapis.com/network-security-conf-codelab.appspot.com/v2/"
+    private const val url: String =
+        "https://storage.googleapis.com/network-security-conf-codelab.appspot.com/v2/"
     val getClient: ApiInterface
         get() {
-
             val gson = GsonBuilder()
                 .setLenient()
                 .create()
@@ -20,13 +22,10 @@ object ApiClient {
             val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(url)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
-
             return retrofit.create(ApiInterface::class.java)
-
         }
-
 }

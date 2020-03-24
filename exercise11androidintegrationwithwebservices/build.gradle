@@ -50,6 +50,8 @@ dependencies {
     // Anko Library
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // RecyclerView and CardView Library
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 

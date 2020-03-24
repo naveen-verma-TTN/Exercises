@@ -7,12 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.exercise11androidintegrationwithwebservices.MyAdapter.MyViewHolder
 import kotlinx.android.synthetic.main.mylayout.view.*
-import java.util.*
 
-class MyAdapter internal constructor(private val myData: ArrayList<MyDataClass.Posts>) :
+class MyAdapter internal constructor(private val myData: List<Posts>) :
     RecyclerView.Adapter<MyViewHolder>() {
 
-    companion object {
+    private companion object {
         private const val TAG = "myAdapter"
     }
 
@@ -23,8 +22,6 @@ class MyAdapter internal constructor(private val myData: ArrayList<MyDataClass.P
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val (name, message, profileImage) = myData[position]
-
         holder.dataBind(myData[position])
     }
 
@@ -32,9 +29,12 @@ class MyAdapter internal constructor(private val myData: ArrayList<MyDataClass.P
         return myData.size
     }
 
+    /**
+     * ViewHolder Class
+     */
     class MyViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        fun dataBind(myData: MyDataClass.Posts) {
+        fun dataBind(myData: Posts) {
             itemView.nameID.text = myData.name
             itemView.messageID.text = myData.message
             Glide.with(itemView.context).load(myData.profileImage)

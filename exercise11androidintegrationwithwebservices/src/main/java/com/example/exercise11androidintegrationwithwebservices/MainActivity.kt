@@ -12,10 +12,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.indeterminateProgressDialog
 import org.jetbrains.anko.uiThread
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.io.InputStream
@@ -24,10 +28,11 @@ import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
-
-    companion object {
+    private companion object {
         private const val TAG = "MainActivity"
     }
+
+    private val gson = Gson()
 
     private val imageUrl = "https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
     private val listUrl =
@@ -38,6 +43,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+    /**
+     * function to update the UI after downloading the image using Glide or Http Api
+     */
+    private fun updateUI(resource: Drawable) {
+        Toast.makeText(applicationContext, "Downloaded", Toast.LENGTH_LONG).show()
+
+        layout.background = resource
+        textView.setTextColor(Color.WHITE)
+        textView2.setTextColor(Color.WHITE)
+    }
+
+    /**
+     * function to download the image using Glide
+     */
     fun downloadImageGlide(view: View) {
         Glide.with(this).load(imageUrl)
             .into(object : SimpleTarget<Drawable?>() {
@@ -45,17 +64,14 @@ class MainActivity : AppCompatActivity() {
                     resource: Drawable,
                     transition: com.bumptech.glide.request.transition.Transition<in Drawable?>?
                 ) {
-                    Log.e(TAG, "Downloaded")
-
-                    Toast.makeText(applicationContext, "Downloaded", Toast.LENGTH_LONG).show()
-
-                    layout.background = resource
-                    textView.setTextColor(Color.WHITE)
-                    textView2.setTextColor(Color.WHITE)
+                    updateUI(resource)
                 }
             })
     }
 
+    /**
+     * function to download the image using Http Api
+     */
     fun downloadImageHttpApi(view: View) {
         val dialog = indeterminateProgressDialog("Downloading")
         doAsync {
@@ -68,17 +84,11 @@ class MainActivity : AppCompatActivity() {
             try {
                 val input: InputStream = BufferedInputStream(urlConnection.inputStream);
                 val bitmap = BitmapFactory.decodeStream(input)
-                val d = BitmapDrawable(resources, bitmap)
+                val drawable = BitmapDrawable(resources, bitmap)
 
                 uiThread {
-                    Log.e(TAG, "Downloaded")
-
-                    Toast.makeText(applicationContext, "Downloaded", Toast.LENGTH_LONG).show()
-                    layout.background = d
-                    textView.setTextColor(Color.WHITE)
-                    textView2.setTextColor(Color.WHITE)
+                    updateUI(drawable)
                 }
-
 
             } catch (e: IOException) {
                 Log.e(TAG, e.toString())
@@ -89,20 +99,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * function to download the Json and Parse the Json object using Gson
+     * and send the Parsable "MyData" class object to RecycleView class
+     */
     fun downloadListUsingHttpApi(view: View) {
         val dialog = indeterminateProgressDialog("Downloading")
         doAsync {
             dialog.show()
-            println("Downloading");
+
             val json = URL(listUrl).readText()
 
             try {
-                uiThread {
-                    val intent = Intent(applicationContext, RecycleViewClass::class.java)
-                    intent.putExtra("JSON", json)
-                    startActivity(intent)
-                }
+                val data = gson.fromJson(json, MyData::class.java)
+                val intent = Intent(applicationContext, RecyclerViewClass::class.java)
+                intent.putExtra(RecyclerViewClass.MYDATA, data)
+                startActivity(intent)
+
             } catch (e: IOException) {
                 Log.e(TAG, e.toString())
             } finally {
@@ -111,29 +124,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * function to download the Json using RetroFit Api
+     * and send the Parsable "MyData" class object to RecycleView class
+     */
     fun downloadListUsingRetroFit(view: View) {
-       /* val call: Call<MyDataClass> = ApiClient.getClient.getData()
-        call.enqueue(object : Callback<MyDataClass> {
-            override fun onResponse(call: Call<MyDataClass>?, response: Response<MyDataClass>?) {
+        val call: Call<MyData> = ApiClient.getClient.getData()
+        call.enqueue(object : Callback<MyData> {
+            override fun onResponse(call: Call<MyData>?, response: Response<MyData>?) {
 
-                // dataList.addAll(response!!.body()!!)
-                Log.e(TAG, "Result : " + response!!.body()!!.toString())
-                val json = response.body()!!.toString()
-                val intent = Intent(applicationContext, RecycleViewClass::class.java)
+                val data: MyData = response!!.body()!!
 
-                Log.e(TAG, "fdddfd: " + json)
+                val intent = Intent(applicationContext, RecyclerViewClass::class.java)
+                intent.putExtra(RecyclerViewClass.MYDATA, data)
 
-              *//*  intent.putExtra("JSON", json)
-                startActivity(intent)*//*
-
+                startActivity(intent)
             }
 
-            override fun onFailure(call: Call<MyDataClass>?, t: Throwable?) {
+            override fun onFailure(call: Call<MyData>?, t: Throwable?) {
                 Log.e(TAG, "Exception: " + t.toString())
             }
-
-        })*/
+        })
     }
-
 }
 
