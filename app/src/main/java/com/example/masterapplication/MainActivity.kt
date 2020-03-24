@@ -1,7 +1,6 @@
 package com.example.masterapplication
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val activityName = arrayOf(
-        "login_application_kotlin",
+        "Kotlin Exercise 4 : Login Application Using Kotlin",
         "Exercise 11 : Android Integration With Web Services"
     )
 
@@ -25,8 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         gotoBT.setOnClickListener {
             when (spinner.selectedItem) {
-                "login_application_kotlin" -> {
-                    Log.e("dfdd","sdss")
+                "Kotlin Exercise 4 : Login Application Using Kotlin" -> {
                     startActivity(packageManager.getLaunchIntentForPackage("com.example.login_application_kotlin"))
                     makeToast(
                         "login_application_kotlin"
