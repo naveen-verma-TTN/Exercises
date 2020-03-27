@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">Master Application</string>
-    <string name="selected_item">Selected item:</string>
-    <string name="go_to">Go To</string>
-
+    <string name="app_name">Weather App</string>
+    <string name="temp">42.20°</string>
+    <string name="lowTemp">Low 39.20°</string>
+    <string name="highTemp">High 45.80°</string>
+    <string name="zipcode">ZipCode</string>
+    <string name="message">Change Zipcode and Hit Enter</string>
+    <string name="refresh">Refresh</string>
+    <!--    API KEY     -->
+    <string name="api_key">239e2ab8807b3e340f4b027697dfacbd</string>
 </resources>
