@@ -19,7 +19,7 @@ class WeatherNetworkClient(context: Context) {
             .build()
         val weatherServices = network.create(WeatherService::class.java)
         return weatherServices.weatherByZip(
-            "imperial", zipCode,
+            "metric", zipCode,
             apiKey
         )
     }

@@ -5,6 +5,7 @@ package adds.naveen.weatherapp
  */
 open class Weather {
     var main: Main = Main()
+    var name : String = ""
 }
 
 class Main {

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Weather App</string>
-    <string name="temp">42.20°</string>
-    <string name="lowTemp">Low 39.20°</string>
-    <string name="highTemp">High 45.80°</string>
+    <string name="temp">--°</string>
+    <string name="lowTemp">Low ——°</string>
+    <string name="highTemp">High ——°</string>
     <string name="zipcode">ZipCode</string>
     <string name="message">Change Zipcode and Hit Enter</string>
     <string name="refresh">Refresh</string>

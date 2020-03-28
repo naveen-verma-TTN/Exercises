@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Weather>, response: Response<Weather>?) {
                 val weather: Weather? = response?.body()
                 val main = weather?.main
+                location.text = weather?.name
                 main?.let { presentData(it) }
             }
         })
