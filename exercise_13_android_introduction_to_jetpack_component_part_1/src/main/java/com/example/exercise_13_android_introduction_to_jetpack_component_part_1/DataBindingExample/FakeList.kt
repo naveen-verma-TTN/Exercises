@@ -1,7 +1,8 @@
 package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.DataBindingExample
 
-import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.Person
-
+/**
+ * Fake list of person (Fake data)
+ */
 class FakeList {
     val person: ArrayList<Person> = ArrayList<Person>()
 

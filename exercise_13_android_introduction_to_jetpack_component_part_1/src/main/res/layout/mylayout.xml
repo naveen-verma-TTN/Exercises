@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="person"
-            type="com.example.exercise_13_android_introduction_to_jetpack_component_part_1.Person" />
+            type="com.example.exercise_13_android_introduction_to_jetpack_component_part_1.DataBindingExample.Person" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/background_light"
         android:elevation="50dp"
-        app:cardCornerRadius="50dp"
         android:onClick="@{(person)->person}"
+        app:cardCornerRadius="50dp"
         tools:targetApi="lollipop">
 
         <RelativeLayout

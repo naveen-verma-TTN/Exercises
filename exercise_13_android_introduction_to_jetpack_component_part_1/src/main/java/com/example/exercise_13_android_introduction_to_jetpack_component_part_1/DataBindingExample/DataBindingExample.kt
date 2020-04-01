@@ -11,6 +11,10 @@ import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.
 import kotlinx.android.synthetic.main.fragment_databinding_example.*
 import kotlinx.android.synthetic.main.fragment_databinding_example.view.*
 
+/**
+ * DataBinding fragment
+ */
+
 class DataBindingExample : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,6 +29,9 @@ class DataBindingExample : Fragment() {
         return inflater.inflate(R.layout.fragment_databinding_example, container, false)
     }
 
+    /**
+     * Initialize the recycler View
+     */
     private fun initRecyclerView(view: View){
         val fakeList = FakeList()
         view.recyclerViewID.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)

@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment(), View.OnClickListener {
 
+    // Navigation Controller
     lateinit var navController: NavController
 
     override fun onCreateView(
@@ -28,6 +29,9 @@ class MainFragment : Fragment(), View.OnClickListener {
         question_2_btn.setOnClickListener(this)
     }
 
+    /**
+     * ClickListener to navigate from mainFragment to dataBindingFragment and viewModelFragment
+     */
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.question_1_btn -> navController
