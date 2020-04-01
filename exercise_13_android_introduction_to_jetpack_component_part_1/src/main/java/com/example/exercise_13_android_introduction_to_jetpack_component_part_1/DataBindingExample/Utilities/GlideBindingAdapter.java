@@ -10,7 +10,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.R;
 
 /**
- * GildeBindingAdapter to set the image in the mylayout
+ * GlideBindingAdapter to set the image in the mylayout
  */
 public class GlideBindingAdapter {
     @BindingAdapter("imageUrl")
