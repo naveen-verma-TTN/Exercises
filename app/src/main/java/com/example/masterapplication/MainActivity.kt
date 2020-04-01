@@ -9,7 +9,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private val activityName = arrayOf(
         "Kotlin Exercise 4 : Login Application Using Kotlin",
-        "Exercise 11 : Android Integration With Web Services"
+        "Exercise 11 : Android Integration With Web Services",
+        "Exercise 13 : Android: Introduction to JetPack Component Part 1"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +35,12 @@ class MainActivity : AppCompatActivity() {
                     startActivity(packageManager.getLaunchIntentForPackage("com.example.exercise11androidintegrationwithwebservices"))
                     makeToast(
                         "Exercise 11 : Android Integration With Web Services"
+                    )
+                }
+                "Exercise 13 : Android: Introduction to JetPack Component Part 1" -> {
+                    startActivity(packageManager.getLaunchIntentForPackage("com.example.exercise_13_android_introduction_to_jetpack_component_part_1"))
+                    makeToast(
+                        "Exercise 13 : Android: Introduction to JetPack Component Part 1"
                     )
                 }
             }
