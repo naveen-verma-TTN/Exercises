@@ -1,4 +1,4 @@
-package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.DataBindingExample.Utilities;
+package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.dataBindingExample.utilities;
 
 import android.content.Context;
 import android.widget.ImageView;

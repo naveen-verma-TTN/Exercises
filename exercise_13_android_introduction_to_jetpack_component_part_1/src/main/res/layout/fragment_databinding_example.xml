@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#92ECE5E5"
-    tools:context=".DataBindingExample.DataBindingExample">
+    tools:context=".dataBindingExample.DataBindingExample">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewID"

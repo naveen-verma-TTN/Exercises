@@ -1,4 +1,6 @@
-package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.DataBindingExample
+package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.dataBindingExample
+
+import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.dataBindingExample.model.Person
 
 /**
  * Fake list of person (Fake data)

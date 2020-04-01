@@ -1,8 +1,9 @@
-package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.DataBindingExample
+package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.dataBindingExample
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.dataBindingExample.model.Person
 import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.databinding.MylayoutBinding
 
 /**
@@ -17,7 +18,7 @@ class RecyclerAdapter internal constructor(private val myData: List<Person>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding : MylayoutBinding = MylayoutBinding.inflate(
+        val binding: MylayoutBinding = MylayoutBinding.inflate(
             layoutInflater, parent, false
         )
         return MyViewHolder(binding)
