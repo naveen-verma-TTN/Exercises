@@ -1,4 +1,4 @@
-package com.example.exercise_13_android_introduction_to_jetpack_component_part_1.dataBindingExample.utilities;
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.utilities;
 
 import android.content.Context;
 import android.widget.ImageView;
@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.exercise_13_android_introduction_to_jetpack_component_part_1.R;
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.R;
 
 /**
  * GlideBindingAdapter to set the image in the mylayout

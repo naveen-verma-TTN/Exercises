@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">exercise_14_android_introduction_to_jetpack_component_part_2</string>
+
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="delete_message">records are deleted successfully.</string>
+    <string name="update_message">records are Updated successfully.</string>
+    <string name="item_error_message">Please enter mandatory fields</string>
+    <string name="insert_message">records are inserted successfully.</string>
+    <string name="save">Save</string>
+    <string name="title">Title</string>
+    <string name="user_name">User Name*</string>
+    <string name="user_emailId">User EmailID*</string>
+    <string name="phone_number">Phone Number*</string>
+    <string name="address">Address*</string>
+    <string name="cancel">Cancel</string>
+    <string name="update_add">Update or Add</string>
+
+</resources>
