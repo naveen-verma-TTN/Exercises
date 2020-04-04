@@ -1,10 +1,10 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.recylcerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.databinding.MylayoutBinding
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model.User
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model.User
 import java.util.*
 
 /**
@@ -19,7 +19,9 @@ import java.util.*
         val binding: MylayoutBinding = MylayoutBinding.inflate(
             layoutInflater, parent, false
         )
-        return MyViewHolder(binding)
+        return MyViewHolder(
+            binding
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

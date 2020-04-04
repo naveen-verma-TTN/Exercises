@@ -15,5 +15,9 @@
     <string name="address">Address*</string>
     <string name="cancel">Cancel</string>
     <string name="update_add">Update or Add</string>
+    <string name="question_1"><![CDATA[1.Create Application using recycler view, fragments and data binding to show a list of user with name, Email,Phone Number etc with Some data. Click on floating action button should show a fragment to add user details -> Clicking on save should insert in DB (use live data to get the list of users and be observed by the view).]]></string>
+    <string name="question1_btn_txt">Question 1</string>
+    <string name="viewModel_scoping">2. ViewModelScoping</string>
+    <string name="question_2_btn_txt">Question 2</string>
 
 </resources>

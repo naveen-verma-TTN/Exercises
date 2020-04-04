@@ -1,10 +1,10 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.viewmodel
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.database.UserRepository
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model.User
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.database.UserRepository
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model.User
 
 /**
  * ViewModel class

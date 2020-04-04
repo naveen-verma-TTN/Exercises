@@ -1,11 +1,11 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.database
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model.User
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model.User
 import org.jetbrains.anko.doAsync
 
 /**

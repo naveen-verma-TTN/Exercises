@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.example.exercise_14_android_introduction_to_jetpack_component_part_2.utilities.StringUtil" />
+        <import type="com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.utilities.StringUtil" />
 
         <variable
             name="user"
-            type="com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model.User" />
+            type="com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model.User" />
 
         <variable
             name="imageUrl"
@@ -15,7 +15,7 @@
 
         <variable
             name="clickListener"
-            type="com.example.exercise_14_android_introduction_to_jetpack_component_part_2.ListItemClickListener" />
+            type="com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.recylcerview.ListItemClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"

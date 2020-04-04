@@ -1,4 +1,4 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.utilities;
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.utilities;
 
 import android.content.Context;
 import android.widget.ImageView;

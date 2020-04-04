@@ -1,5 +1,4 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2
-
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -7,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model.User
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.viewmodel.ViewModel
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.R
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model.User
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.viewmodel.ViewModel
 import kotlinx.android.synthetic.main.fragment_add_user_update.*
 import kotlinx.android.synthetic.main.fragment_add_user_update.view.*
 
@@ -28,7 +28,8 @@ class AddUserUpdate : DialogFragment(), View.OnClickListener {
             _title: String,
             _user: User?
         ) =
-            AddUserUpdate().apply {
+            AddUserUpdate()
+                .apply {
                 viewModel = _viewModel
                 heading = _title
                 if (heading == "updateUser") {
@@ -48,7 +49,8 @@ class AddUserUpdate : DialogFragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         // update the title of dialog box
-        view.title.text = heading
+        view.title.text =
+            heading
 
         if (heading == "updateUser") {
             view.name.setText(user.name)

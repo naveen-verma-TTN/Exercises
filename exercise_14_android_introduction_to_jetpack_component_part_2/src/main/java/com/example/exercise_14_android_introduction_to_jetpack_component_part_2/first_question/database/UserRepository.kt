@@ -1,8 +1,8 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.database
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.database
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model.User
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model.User
 import org.jetbrains.anko.doAsync
 
 internal class UserRepository(application: Application?) {

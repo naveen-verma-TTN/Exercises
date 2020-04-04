@@ -1,4 +1,4 @@
-package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.model
+package com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
