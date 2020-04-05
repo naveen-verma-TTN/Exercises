@@ -29,14 +29,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-
+    private MyAlarm alarm;
     private AlarmManager alarmManager;
 
 
@@ -46,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        alarm = new MyAlarm();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.example.performingbackgroundtasknotificationpart2.Message");
+        filter.addAction("android.intent.action.BOOT_COMPLETED");
+        registerReceiver(alarm, filter);
     }
 
     /**
@@ -58,10 +72,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction("com.example.performingbackgroundtasknotificationpart2.Message");
         intent.addCategory("android.intent.category.DEFAULT");
-        intent.setClass(this, MyAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0 , intent, 0);
+        intent.setClass(this, alarm.getClass());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 10 * 3, pendingIntent);
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() +
+                60 * 10, 10 * 3, pendingIntent);
 
     }
 
@@ -75,9 +90,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction("com.example.performingbackgroundtasknotificationpart2.Message");
         intent.addCategory("android.intent.category.DEFAULT");
-        intent.setClass(this, MyAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0 , intent, 0);
+        intent.setClass(this, alarm.getClass());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
         alarmManager.cancel(pendingIntent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(alarm);
     }
 }
