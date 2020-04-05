@@ -19,5 +19,11 @@
     <string name="question1_btn_txt">Question 1</string>
     <string name="viewModel_scoping">2. ViewModelScoping</string>
     <string name="question_2_btn_txt">Question 2</string>
+    <string name="color_name">Color_name</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_fragment">First Fragment</string>
+    <string name="second_fragment">Second Fragment</string>
 
 </resources>

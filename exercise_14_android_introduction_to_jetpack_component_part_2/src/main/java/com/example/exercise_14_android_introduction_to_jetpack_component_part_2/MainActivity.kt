@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.first_question.FirstQuestionMain
+import com.example.exercise_14_android_introduction_to_jetpack_component_part_2.second_question.SecondQuestionMain
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.question_1_btn -> startActivity(Intent(this, FirstQuestionMain::class.java))
-            R.id.question_2_btn -> startActivity(Intent(this,FirstQuestionMain::class.java))
+            R.id.question_2_btn -> startActivity(Intent(this,SecondQuestionMain::class.java))
         }
     }
 }
