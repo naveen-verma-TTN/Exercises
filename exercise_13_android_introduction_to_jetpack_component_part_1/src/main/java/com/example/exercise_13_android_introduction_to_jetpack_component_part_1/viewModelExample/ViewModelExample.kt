@@ -34,7 +34,7 @@ class ViewModelExample : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Observer to observe the color change
-        viewModel.getColor()!!.observe(
+        viewModel.getColor().observe(
             requireActivity(),
             Observer { color ->
                 view.layout_view_model.setBackgroundColor(Color.parseColor(color))

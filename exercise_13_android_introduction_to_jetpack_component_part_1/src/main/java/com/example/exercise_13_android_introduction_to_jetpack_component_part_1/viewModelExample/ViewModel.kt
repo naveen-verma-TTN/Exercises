@@ -15,7 +15,7 @@ class ViewModel : ViewModel() {
         colorValue.value = color
     }
 
-    fun getColor(): LiveData<String>? {
+    fun getColor(): LiveData<String?> {
         return colorValue
     }
 }
